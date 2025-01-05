@@ -22,7 +22,7 @@ public class BinarySemaphore {
             throw new RuntimeException(e);
         }finally {  // this is exit section
             System.out.println(threadName+" leaving critical section");
-            semaphore.release(); // this is singal() or down() operation
+            semaphore.release(); // this is signal() or down() operation
         }
     }
 }
