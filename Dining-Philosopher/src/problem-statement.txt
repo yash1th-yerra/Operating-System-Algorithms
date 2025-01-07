@@ -1,0 +1,33 @@
+Problem Description
+
+   - Scenario: Five philosophers are sitting at a round table. Each philosopher alternates between two activities:
+        Thinking (does not need resources).
+        Eating (requires two forks, one on each side).
+
+   - There are five forks, one between each pair of philosophers.
+
+   - A philosopher can eat only if they can pick up both forks simultaneously.
+
+
+
+Solution:
+    Key Points of the Solution
+
+        Prevent Deadlock:
+            Limit the number of philosophers who can attempt to pick up forks to NUM_PHILOSOPHERS - 1. This ensures at least one philosopher can eat, breaking circular wait.
+
+        Mutual Exclusion:
+            Use semaphores for each fork to ensure only one philosopher can use it at a time.
+
+        Avoid Starvation:
+            Philosophers alternate between thinking and eating, ensuring fairness.
+
+        Concurrency:
+            Multiple philosophers can think or eat simultaneously if forks are available.
+
+
+
+Common Variations
+
+    Chandy-Misra Solution: Uses messages and tokens to manage resource allocation.
+    Asymmetrical Solution: Philosophers alternate fork-picking order (left-first for odd IDs, right-first for even IDs) to avoid deadlock
