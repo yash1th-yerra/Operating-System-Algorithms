@@ -1,0 +1,8 @@
+A process is divided into multiple pages and placed in frames of the main memory. 
+but if the number of pages is greater than the number of frames then all the pages cannot be fit into the frames available.
+Hence some pages of the process wouldn't be in a frame but would be in hard disk. 
+Hence when cpu requests for such a page,the page table entry holding the frame number for that page would be empty since it's not yet loaded to a frame in the main memory and is still in the hard disk.
+It would also have its valid bit set to 0 => invalid page because its in hard disk and not main memory.This causes page fault.
+This page fault generates a trap and hence the mode bit changes from user to kernel or OS mode.
+Then the OS fetches this page from the hard disk and places it in a frame using Replacement algorithm if no free frame available in the main memory.
+Then it updates the page table entry and valid bit.It sets the frame number where the page was placed and the valid bit is set to 1.
